@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // Define associations here, if any (e.g., Venue hasMany Menus)
       Venue.hasMany(models.Menu, { foreignKey: 'venueId' });
+      Venue.hasMany(models.Hall, { foreignKey: 'venueId' });
+      // In Venue model (models/venue.js)
+      Venue.hasMany(models.Booking, { foreignKey: 'venueId' });
+
     }
   }
   Venue.init({

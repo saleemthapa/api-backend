@@ -11,11 +11,14 @@ app.use(cors());
 app.use(bodyParser.json());  // Parse JSON request bodies
 
 // Routes
+require('./routes/hallRoutes')(app);
 require('./routes/venueRoutes')(app);
 require('./routes/menuRoutes')(app);
 require('./routes/categoryRoutes')(app);
 require('./routes/subcategoryRoutes')(app);
 require('./routes/itemRoutes')(app);
+require('./routes/bookingRoutes')(app);
+
 
 // Sync models with DB (optional)
 db.sequelize.sync().then(() => {

@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // Define associations here (e.g., Menu belongsTo Venue)
       Menu.belongsTo(models.Venue, { foreignKey: 'venueId' });
+      // In Menu model (models/menu.js)
+      Menu.hasMany(models.Booking, { foreignKey: 'menuId' });
+
     }
   }
   Menu.init({
